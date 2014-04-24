@@ -1,0 +1,5 @@
+node_modules/
+.DS_Store
+chromedriver.log
+.elasticbeanstalk/
+team-picker.sublime-project
