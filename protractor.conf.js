@@ -26,7 +26,7 @@ exports.config = {
   chromeDriver: '/usr/local/bin/chromedriver',
   // If true, only chromedriver will be started, not a standalone selenium.
   // Tests for browsers other than chrome will not run.
-  chromeOnly: false,
+  chromeOnly: true,
   // Additional command line options to pass to selenium. For example,
   // if you need to change the browser timeout, use
   // seleniumArgs: ['-browserTimeout=60'],
@@ -40,7 +40,7 @@ exports.config = {
   // The address of a running selenium server. If specified, Protractor will
   // connect to an already running instance of selenium. This usually looks like
   // seleniumAddress: 'http://localhost:4444/wd/hub'
-  seleniumAddress: 'http://localhost:4444/wd/hub',
+  // seleniumAddress: 'http://localhost:4444/wd/hub',
 
   // The timeout for each script run on the browser. This should be longer
   // than the maximum time your application needs to stabilize between tasks.
