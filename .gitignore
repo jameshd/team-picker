@@ -1,5 +1,9 @@
-node_modules/
 .DS_Store
-chromedriver.log
-.elasticbeanstalk/
-team-picker.sublime-project
+.nodemonignore
+.sass-cache/
+npm-debug.log
+node_modules/
+public/lib
+app/tests/coverage/
+.bower-*/
+.idea/

@@ -1,72 +1,52 @@
+'use strict';
+
+/**
+ * Module dependencies.
+ */
+var applicationConfiguration = require('./config/config');
+
 // Karma configuration
-// Generated on Wed Mar 05 2014 21:23:56 GMT+0000 (GMT)
-
 module.exports = function(config) {
-  config.set({
+	config.set({
+		// Frameworks to use
+		frameworks: ['jasmine'],
 
-    // base path, that will be used to resolve files and exclude
-    basePath: '',
+		// List of files / patterns to load in the browser
+		files: applicationConfiguration.assets.lib.js.concat(applicationConfiguration.assets.js, applicationConfiguration.assets.tests),
 
+		// Test results reporter to use
+		// Possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
+		//reporters: ['progress'],
+		reporters: ['progress'],
 
-    // frameworks to use
-    frameworks: ['jasmine'],
+		// Web server port
+		port: 9876,
 
+		// Enable / disable colors in the output (reporters and logs)
+		colors: true,
 
-    // list of files / patterns to load in the browser
-    files: [
-      'lib/angular.min.js',
-      'lib/angular-mocks.js',
-      'lib/app.js',
-      'spec/karma/*.js',
-      'spec/karma/test-main.js'
-    ],
+		// Level of logging
+		// Possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+		logLevel: config.LOG_INFO,
 
+		// Enable / disable watching file and executing tests whenever any file changes
+		autoWatch: true,
 
-    // list of files to exclude
-    exclude: [
+		// Start these browsers, currently available:
+		// - Chrome
+		// - ChromeCanary
+		// - Firefox
+		// - Opera
+		// - Safari (only Mac)
+		// - PhantomJS
+		// - IE (only Windows)
+		browsers: ['PhantomJS'],
 
-    ],
+		// If browser does not capture in given timeout [ms], kill it
+		captureTimeout: 60000,
 
-
-    // test results reporter to use
-    // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-    reporters: ['progress'],
-
-
-    // web server port
-    port: 9876,
-
-
-    // enable / disable colors in the output (reporters and logs)
-    colors: true,
-
-
-    // level of logging
-    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
-
-
-    // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
-
-
-    // Start these browsers, currently available:
-    // - Chrome
-    // - ChromeCanary
-    // - Firefox
-    // - Opera (has to be installed with `npm install karma-opera-launcher`)
-    // - Safari (only Mac; has to be installed with `npm install karma-safari-launcher`)
-    // - PhantomJS
-    // - IE (only Windows; has to be installed with `npm install karma-ie-launcher`)
-    browsers: ['PhantomJS'],
-
-
-    // If browser does not capture in given timeout [ms], kill it
-    captureTimeout: 60000,
-
-
-    // Continuous Integration mode
-    // if true, it capture browsers, run tests and exit
-    singleRun: false
-  });
+		// Continuous Integration mode
+		// If true, it capture browsers, run tests and exit
+		singleRun: true
+	});
 };
