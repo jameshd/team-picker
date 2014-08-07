@@ -100,12 +100,16 @@ module.exports = function(grunt) {
         },
         karma: {
             unit: {
-                configFile: 'karma.conf.js'
+                configFile: 'karma.conf.js',
+                singleRun: false
+            },
+            ci : {
+                configFile : 'karma.conf.js',
             }
         }
     });
 
-    // Load NPM tasks 
+    // Load NPM tasks
     require('load-grunt-tasks')(grunt);
 
     // Making grunt default to force in order not to break the project.
@@ -130,5 +134,6 @@ module.exports = function(grunt) {
     grunt.registerTask('build', ['jshint', 'csslint', 'loadConfig' ,'uglify', 'cssmin']);
 
     // Test task.
-    grunt.registerTask('test', ['env:test', 'mochaTest', 'karma:unit']);
+    grunt.registerTask('test', ['env:test', 'mochaTest', 'karma:ci']);
+    grunt.registerTask('jsunit', ['env:test', 'karma:unit']);
 };

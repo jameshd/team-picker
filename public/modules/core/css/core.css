@@ -1,9 +1,12 @@
 .content {
-	margin-top: 50px;
+    margin-top: 50px;
 }
 .undecorated-link:hover {
-	text-decoration: none;
+    text-decoration: none;
 }
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-	display: none !important;
+    display: none !important;
+}
+body {
+    background: url('../img/football-compact.jpg');
 }

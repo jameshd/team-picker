@@ -1,32 +1,56 @@
 <section data-ng-controller="HomeController">
-    <h1 class="text-center">THANK YOU FOR DOWNLOADING MEAN.JS</h1>
-    <section>
-        <p>
-        	Before you begin we recommend you read about the basic building blocks that assemble a MEAN.JS application:
-        </p>
-        <dl>
-            <dt>MongoDB</dt>
-            <dd>
-                Go through <a target="_blank" href="http://mongodb.org">MongoDB Official Website</a> and proceed to its <a target="_blank" href="http://docs.mongodb.org/manual/">Great Manual</a>, which should help you understand NoSQL and MongoDB better.
-            </dd>
-            <dt>Express</dt>
-            <dd>
-                The best way to understand Express is through its <a target="_blank" href="http://expressjs.com"> Official Website</a>, particularly <a target="_blank" href="http://expressjs.com/guide.html">The Express Guide</a>; you can also go through this <a target="_blank" href="http://stackoverflow.com/questions/8144214/learning-express-for-node-js">StackOverflow Thread</a> for more resources.
-            </dd>
-            <dt>AngularJS</dt>
-            <dd>
-                Angular's <a target="_blank" href="http://angularjs.org">Official Website</a> is a great starting point. You can also use <a target="_blank" href="http://www.thinkster.io/">Thinkster Popular Guide</a>, and the <a target="_blank" href="https://egghead.io/">Egghead Videos</a>.
-            </dd>
-            <dt>Node.js</dt>
-            <dd>
-                Start by going through <a target="_blank" href="http://nodejs.org">Node.js Official Website</a> and this <a target="_blank" href="http://stackoverflow.com/questions/2353818/how-do-i-get-started-with-node-js">StackOverflow Thread</a>, which should get you going with the Node.js platform in no time.
-            </dd>
-        </dl>
-        <p class="alert alert-info">
-            When you're done with those resources and feel you understand the basic principles continue to the <a target="_blank" href="http://meanjs.org/docs.html">MEAN.JS Documentation</a>.
-        </p>
-        <br>
-        <br>Enjoy &amp; Keep Us Updated,
-        <br>The MEAN.JS Team.
-    </section>
+    <div class="container">
+        <div class="heading col-xs-12">
+            <h2>Team Picker</h2>
+            <p>Can't decide on who to pick?</p>
+        </div>
+
+
+        <div class="col-xs-12">
+            <div class="alert alert-warning" ng-model="errorText" ng-show="errorText">{{errorText}}</div>
+        </div>
+
+        <div class="col-xs-12" ng-controller="TeamPickerController">
+            <form ng-submit="splitPlayers()">
+                <textarea class="col-lg-12" ng-model="playerNames" required placeholder="One player per line..."></textarea>
+
+                <input class="btn btn-lg btn-primary" id="split-teams" type="submit" value="Split em up!" />
+                <span team-counter id="team-counter"></span>
+            </form>
+            <div ng-show="teamOne.length && teamTwo.length" class="teams">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <div class="panel panel-danger">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Red Team</h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="list-group">
+                                    <li class="list-group-item" ng-repeat="player in teamOne">
+                                        <img ng-src="/modules/core/img/red-shirt.png" alt="Reds">{{player}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-md-6">
+
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Blue Team</h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="list-group">
+                                    <li class="list-group-item" ng-repeat="player in teamTwo">
+                                        <img ng-src="/modules/core/img/blue-shirt.png" alt="Blues">{{player}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
 </section>
